@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Search, Code, ExternalLink, Github, Calendar, User } from 'lucide-react';
+import api from '../services/api';
+import { API_CONFIG } from '../config/api';
 
 interface Project {
   _id: string;
@@ -49,7 +51,12 @@ const ProjectsPage: React.FC = () => {
         setIsLoading(true);
         setError(null);
         
-        const response = await fetch('/api/projects');
+        // Use environment-aware API URL
+        const apiUrl = import.meta.env.DEV 
+          ? '/api/projects' 
+          : 'https://predusk-backend1.vercel.app/api/projects';
+        
+        const response = await fetch(apiUrl);
         const result = await response.json();
         
         if (result.success) {

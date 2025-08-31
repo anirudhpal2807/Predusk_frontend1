@@ -5,7 +5,7 @@ export const API_CONFIG = {
   // In production, use full URL from environment variable
   BASE_URL: import.meta.env.DEV 
     ? '' 
-    : (import.meta.env.VITE_API_URL || 'https://your-backend-domain.vercel.app'),
+    : (import.meta.env.VITE_API_URL || 'https://predusk-backend1.vercel.app'),
   
   // API endpoints
   ENDPOINTS: {
