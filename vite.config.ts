@@ -6,12 +6,7 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     sourcemap: false,
-    minify: 'esbuild',
-    rollupOptions: {
-      output: {
-        manualChunks: undefined
-      }
-    }
+    minify: 'esbuild'
   },
   server: {
     port: 3000,
