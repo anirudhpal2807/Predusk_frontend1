@@ -439,7 +439,10 @@ const DashboardPage: React.FC = () => {
     e.preventDefault();
     setIsSubmitting(true);
     try {
-              const response = await api.post('/api/profile/skills', { skill: skillForm.name });
+      console.log('🔧 Submitting skill:', skillForm.name);
+      console.log('🔧 API base URL:', import.meta.env.DEV ? 'Using Vite proxy' : 'Using direct URL');
+      
+      const response = await api.post('/api/profile/skills', { skill: skillForm.name });
       
       if (response.data.success) {
         showNotification('success', 'Skill added successfully!');
