@@ -3,7 +3,9 @@ export const API_CONFIG = {
   // Base URL for API calls
   // In development, use empty string (works with Vite proxy)
   // In production, use full URL from environment variable
-  BASE_URL: import.meta.env.DEV ? '' : (import.meta.env.VITE_API_URL || 'http://localhost:7000'),
+  BASE_URL: import.meta.env.DEV 
+    ? '' 
+    : (import.meta.env.VITE_API_URL || 'https://your-backend-domain.vercel.app'),
   
   // API endpoints
   ENDPOINTS: {
