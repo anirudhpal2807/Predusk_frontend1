@@ -6,7 +6,18 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     sourcemap: false,
-    minify: 'esbuild'
+    minify: 'esbuild',
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ['react', 'react-dom'],
+          router: ['react-router-dom'],
+          form: ['react-hook-form', '@hookform/resolvers', 'zod'],
+          ui: ['lucide-react', 'react-hot-toast'],
+          utils: ['axios']
+        }
+      }
+    }
   },
   server: {
     port: 3000,
@@ -18,5 +29,18 @@ export default defineConfig({
         secure: false,
       }
     }
+  },
+  optimizeDeps: {
+    include: [
+      'react',
+      'react-dom',
+      'react-router-dom',
+      'react-hook-form',
+      '@hookform/resolvers',
+      'zod',
+      'lucide-react',
+      'react-hot-toast',
+      'axios'
+    ]
   }
 })
