@@ -1,8 +1,9 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import axios from 'axios';
 
-// Configure axios base URL - use relative URLs to work with Vite proxy
-axios.defaults.baseURL = '';
+// Configure axios base URL
+const baseURL = import.meta.env.VITE_API_URL || '';
+axios.defaults.baseURL = baseURL;
 
 interface User {
   _id: string;
